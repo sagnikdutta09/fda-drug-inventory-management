@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseNumberValidation</fullName>
+    <active>true</active>
+    <description>Rule to enforce standardized license format.</description>
+    <errorConditionFormula>AND(
+    NOT(ISBLANK(License_Number__c)),
+    NOT(
+        REGEX(
+            License_Number__c,
+            &quot;LIC-[0-9]{6}&quot;
+        )
+    )
+)</errorConditionFormula>
+    <errorMessage>License Number must be in the format LIC-######. Example: LIC-403291.</errorMessage>
+</ValidationRule>

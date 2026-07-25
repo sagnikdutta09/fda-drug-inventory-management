@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Strength__c</fullName>
+    <inlineHelpText>Example: 500 mg, 10 mg/ml</inlineHelpText>
+    <label>Strength</label>
+    <required>true</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>1 mg/mL</fullName>
+                <default>false</default>
+                <label>1 mg/mL</label>
+            </value>
+            <value>
+                <fullName>2 mg/mL</fullName>
+                <default>false</default>
+                <label>2 mg/mL</label>
+            </value>
+            <value>
+                <fullName>5 mg/mL</fullName>
+                <default>false</default>
+                <label>5 mg/mL</label>
+            </value>
+            <value>
+                <fullName>10 mg/mL</fullName>
+                <default>false</default>
+                <label>10 mg/mL</label>
+            </value>
+            <value>
+                <fullName>25 mg/mL</fullName>
+                <default>false</default>
+                <label>25 mg/mL</label>
+            </value>
+            <value>
+                <fullName>50 mg/mL</fullName>
+                <default>false</default>
+                <label>50 mg/mL</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LicenseInformationCheck</fullName>
+    <active>true</active>
+    <description>Ensures that license information is provided for licensed doctors and remains blank for unlicensed doctors.</description>
+    <errorConditionFormula>AND(
+    Licensed__c,
+    OR(
+        ISBLANK(License_Number__c),
+        ISBLANK(License_Expiry__c)
+    )
+)</errorConditionFormula>
+    <errorMessage>Please fill the license information field for licensed doctors.</errorMessage>
+</ValidationRule>

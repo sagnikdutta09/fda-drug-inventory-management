@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Manufacturer__c</fullName>
+    <label>Manufacturer</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Pfizer</fullName>
+                <default>false</default>
+                <label>Pfizer</label>
+            </value>
+            <value>
+                <fullName>Johnson &amp; Johnson (J&amp;J)</fullName>
+                <default>false</default>
+                <label>Johnson &amp; Johnson (J&amp;J)</label>
+            </value>
+            <value>
+                <fullName>Novartis</fullName>
+                <default>false</default>
+                <label>Novartis</label>
+            </value>
+            <value>
+                <fullName>Merck &amp; Co. (MSD)</fullName>
+                <default>false</default>
+                <label>Merck &amp; Co. (MSD)</label>
+            </value>
+            <value>
+                <fullName>Roche</fullName>
+                <default>false</default>
+                <label>Roche</label>
+            </value>
+            <value>
+                <fullName>AbbVie</fullName>
+                <default>false</default>
+                <label>AbbVie</label>
+            </value>
+            <value>
+                <fullName>AstraZeneca</fullName>
+                <default>false</default>
+                <label>AstraZeneca</label>
+            </value>
+            <value>
+                <fullName>Sanofi</fullName>
+                <default>false</default>
+                <label>Sanofi</label>
+            </value>
+            <value>
+                <fullName>GlaxoSmithKline (GSK)</fullName>
+                <default>false</default>
+                <label>GlaxoSmithKline (GSK)</label>
+            </value>
+            <value>
+                <fullName>Eli Lilly</fullName>
+                <default>false</default>
+                <label>Eli Lilly</label>
+            </value>
+            <value>
+                <fullName>OTHER</fullName>
+                <default>false</default>
+                <label>OTHER</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recall_Reason__c</fullName>
+    <label>Recall Reason</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Contamination</fullName>
+                <default>false</default>
+                <label>Contamination</label>
+            </value>
+            <value>
+                <fullName>Manufacturing Defect</fullName>
+                <default>false</default>
+                <label>Manufacturing Defect</label>
+            </value>
+            <value>
+                <fullName>Labeling Error</fullName>
+                <default>false</default>
+                <label>Labeling Error</label>
+            </value>
+            <value>
+                <fullName>Regulatory Action</fullName>
+                <default>false</default>
+                <label>Regulatory Action</label>
+            </value>
+            <value>
+                <fullName>Supplier Issue</fullName>
+                <default>false</default>
+                <label>Supplier Issue</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>
