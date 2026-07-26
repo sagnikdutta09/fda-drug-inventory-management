@@ -5,7 +5,7 @@ public class DrugBatchTriggerHandler {
         DrugBatchService.validateExpiryDate(newRecords);
         DrugBatchService.validateRecallReason(newRecords);
         DrugBatchService.validateDrugBatchQuantity(newRecords);
-        DrugBatchService.validateBatchStatusFDA(newRecords);
+        DrugBatchService.validateBatchStatus(newRecords);
         DrugBatchService.validateSupplier(newRecords);
         DrugBatchService.initializeLastStatusUpdateDate(newRecords);
         
@@ -16,7 +16,6 @@ public class DrugBatchTriggerHandler {
         DrugBatchService.validateExpiryDate(newRecords);
         DrugBatchService.validateRecallReason(newRecords);
         DrugBatchService.validateDrugBatchQuantity(newRecords);
-        DrugBatchService.validateBatchStatusFDA(newRecords);
         DrugBatchService.validateSupplier(newRecords);
         DrugBatchService.enforceQuantityForActiveRecords(newRecords, oldMap);
     }
@@ -33,6 +32,7 @@ public class DrugBatchTriggerHandler {
     public void afterUpdate(List<Drug_Batch__c> newRecords, Map<Id, Drug_Batch__c> oldMap) {
         DrugBatchService.automationDrugBatchInventory(newRecords,oldMap);
         DrugBatchService.activeBatchCountByDrug(newRecords, oldMap);
+        DrugBatchService.batchInventoryFreeze(newRecords, oldMap);
     }
 
     public void afterDelete() {

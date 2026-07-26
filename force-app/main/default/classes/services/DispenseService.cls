@@ -38,9 +38,6 @@ public with sharing class DispenseService {
                 if(disp.Dispensed_Date__c!=null && pres.Prescription_Date__c!=null && disp.Dispensed_Date__c<pres.Prescription_Date__c){
                     disp.Dispensed_Date__c.addError('Dispense date cannot be prior to prescription date.');
                 }
-                if(disp.Dispensed_Quantity__c!=null && pres.Prescribed_Quantity__c!=null && disp.Dispensed_Quantity__c>pres.Prescribed_Quantity__c){
-                    disp.Dispensed_Quantity__c.addError('Dispensed Quantity cannot exceed Prescribed Quantity :'+pres.Prescribed_Quantity__c);
-                }
                 if(disp.Patient__c != pres.Patient__c){
                     disp.Patient__c.addError('Selected patient does not match the patient on the prescription.');
                 }
@@ -214,5 +211,50 @@ public with sharing class DispenseService {
         if (!inventoryUpdates.isEmpty()) {
             update inventoryUpdates;
         }
+    }
+    
+    public static void inventoryStatusUpdate(List<Dispense__c> newDispenses){
+        Set<Id> inventoryIds = new Set<Id>();
+        
+        for(Dispense__c disp:  newDispenses){
+            if(disp.Inventory__c!=null){
+                inventoryIds.add(disp.Inventory__c);
+            }
+        }
+        
+        if(inventoryIds.isEmpty()){
+            return;
+        }
+        
+        Map<Id, Inventory__c> inventoryMap = new Map<Id, Inventory__c>
+            ([SELECT Quantity_On_Hand__c, Reorder_Threshold__c, Is_Frozen__c FROM Inventory__c WHERE Id in :inventoryIds]);
+        Map<Id, Inventory__c> inventoryUpdateMap = new Map<Id, Inventory__c>();
+        
+        for(Id index: inventoryIds){
+            if(!inventoryMap.containsKey(index)){
+                continue;
+            }
+            Inventory__c inv = inventoryMap.get(index);
+            Decimal quantityOnHand = inv.Quantity_On_Hand__c, reorderThresh = inv.Reorder_Threshold__c;
+            String status='';
+            if (inv.Is_Frozen__c) {
+                status = 'Frozen';
+            }
+            else if (quantityOnHand == 0) {
+                status = 'Out of Stock';
+            }
+            else if (quantityOnHand <= reorderThresh) {
+                status = 'Low Stock';
+            }
+            else {
+                status = 'Available';
+            }
+            inventoryUpdateMap.put(index, new Inventory__c(
+                Id = index, Inventory_Status__c = status));
+        }
+
+        if(!inventoryUpdateMap.isEmpty()){
+                update inventoryUpdateMap.values();
+            }
     }
 }
