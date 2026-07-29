@@ -6,7 +6,7 @@
     <referenceTo>Drug__c</referenceTo>
     <relationshipLabel>Inventory</relationshipLabel>
     <relationshipName>Inventory</relationshipName>
-    <required>true</required>
+    <required>false</required>
     <trackFeedHistory>false</trackFeedHistory>
     <trackTrending>false</trackTrending>
     <type>Lookup</type>
