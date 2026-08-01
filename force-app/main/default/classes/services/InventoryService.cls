@@ -8,7 +8,7 @@ public with sharing class InventoryService {
                 inv.Reorder_Threshold__c.addError('Reoder Threshold cannot be less than 0.');
             }
             if(inv.Reorder_Threshold__c>inv.Quantity_On_Hand__c){
-                inv.Reorder_Threshold__c.addError('Reoder Threshold cannot exceed  the Quantity on hand.');
+                inv.Reorder_Threshold__c.addError('Reoder Threshold cannot exceed the Quantity on hand.');
             }
         }
     }

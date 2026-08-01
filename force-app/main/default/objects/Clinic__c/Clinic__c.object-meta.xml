@@ -156,7 +156,7 @@
     <externalSharingModel>Private</externalSharingModel>
     <label>Clinic</label>
     <nameField>
-        <label>Clinic</label>
+        <label>Clinic Name</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>
     </nameField>
