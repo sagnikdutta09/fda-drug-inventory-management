@@ -88,6 +88,11 @@ private class DoctorServiceTest {
         insert dr;
         Test.stopTest();
         
-        System.assertNotEquals(null, dr.Id);
+        Doctor__c insertedDoctor =
+            [SELECT Id, Clinic__c
+     FROM Doctor__c
+     WHERE Id = :dr.Id];
+        
+        System.assertEquals(null, insertedDoctor.Clinic__c);
     }
 }
