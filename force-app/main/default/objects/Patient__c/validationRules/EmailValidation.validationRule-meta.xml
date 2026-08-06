@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EmailValidation</fullName>
+    <active>true</active>
+    <errorConditionFormula>NOT(
+    REGEX(
+        Email__c,
+        &quot;^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$&quot;
+    )
+)</errorConditionFormula>
+    <errorDisplayField>Email__c</errorDisplayField>
+    <errorMessage>Please input a valid Email Address</errorMessage>
+</ValidationRule>

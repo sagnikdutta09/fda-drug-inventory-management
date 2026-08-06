@@ -1,7 +1,6 @@
 public with sharing class PrescriptionTriggerHandler {
     public void beforeInsert(List<Prescription__c> newRecords) {
         PrescriptionService.dateValidation(newRecords);
-        PrescriptionService.defaultPrescriptionValue(newRecords);
         PrescriptionService.validatePatientStatus(newRecords);
         PrescriptionService.validatePrescriptionQuantity(newRecords);
         PrescriptionService.validateRefills(newRecords);

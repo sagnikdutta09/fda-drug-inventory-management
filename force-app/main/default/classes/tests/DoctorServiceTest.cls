@@ -4,7 +4,7 @@ private class DoctorServiceTest {
     static void testPositive_doctorToOpenClinic() {
         Clinic__c  cln = TestDataFactory.createClinic(true);
         insert cln;
-        Doctor__c dr = TestDataFactory.createDoctor(cln.Id);
+        Doctor__c dr = TestDataFactory.createDoctor(cln.Id, True);
         Test.startTest();
         insert dr;
         Test.stopTest();
@@ -19,7 +19,7 @@ private class DoctorServiceTest {
     static void testNegative_doctorToOpenClinic() {
         Clinic__c  cln = TestDataFactory.createClinic(false);
         insert cln;
-        Doctor__c dr = TestDataFactory.createDoctor(cln.Id);
+        Doctor__c dr = TestDataFactory.createDoctor(cln.Id, True);
         Test.startTest();
         try {
             insert dr;
@@ -42,7 +42,7 @@ private class DoctorServiceTest {
         insert clinic1;
         insert clinic2;
         
-        Doctor__c dr = TestDataFactory.createDoctor(clinic1.Id);
+        Doctor__c dr = TestDataFactory.createDoctor(clinic1.Id, True);
         insert dr;
         dr.Clinic__c = clinic2.Id;
         Test.startTest();
@@ -61,7 +61,7 @@ private class DoctorServiceTest {
         insert clinic1;
         insert clinic2;
         
-        Doctor__c dr = TestDataFactory.createDoctor(clinic1.Id);
+        Doctor__c dr = TestDataFactory.createDoctor(clinic1.Id, True);
         insert dr;
         dr.Clinic__c = clinic2.Id;
         Test.startTest();
@@ -82,7 +82,7 @@ private class DoctorServiceTest {
     @IsTest
     static void testPositive_DoctorWithoutClinic() {
         
-        Doctor__c dr = TestDataFactory.createDoctor(null);
+        Doctor__c dr = TestDataFactory.createDoctor(null, True);
         
         Test.startTest();
         insert dr;

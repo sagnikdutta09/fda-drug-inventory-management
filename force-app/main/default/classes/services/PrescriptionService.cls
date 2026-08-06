@@ -6,16 +6,6 @@ public with sharing class PrescriptionService {
             }
         }
     }
-    
-    public static void defaultPrescriptionValue(List<Prescription__c> newPrescriptions){
-        for(Prescription__c p: newPrescriptions){
-            if(p.Prescription_Date__c==null){ //Default prescription date to Today.
-                p.Prescription_Date__c=Date.today();
-            }
-            p.Refills_Used__c=0;
-        }
-    }
-    
     public static void validatePrescriptionQuantity(List<Prescription__c> newPrescriptions){
         for(Prescription__c p : newPrescriptions){ //Validate prescription quantity.
             if(p.Prescribed_Quantity__c != null && p.Prescribed_Quantity__c < 0){
@@ -35,7 +25,6 @@ public with sharing class PrescriptionService {
             }
         }
     }
-    
     public static void validatePatientStatus(List<Prescription__c> newPrescriptions){
         Set<Id> patientIds = new Set<Id>();
         for(Prescription__c p: newPrescriptions){ //Validating required patient field to check the present status of patient.
