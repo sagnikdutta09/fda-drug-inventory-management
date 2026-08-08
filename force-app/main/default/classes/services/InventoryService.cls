@@ -7,9 +7,6 @@ public with sharing class InventoryService {
             if(inv.Reorder_Threshold__c<0){
                 inv.Reorder_Threshold__c.addError('Reorder Threshold cannot be less than 0.');
             }
-            if(inv.Reorder_Threshold__c>inv.Quantity_On_Hand__c){
-                inv.Reorder_Threshold__c.addError('Reorder Threshold cannot exceed the Quantity on hand.');
-            }
         }
     }
     public static void inventoryDrugMatch(List<Inventory__c> newInventory){

@@ -90,8 +90,8 @@ private class DoctorServiceTest {
         
         Doctor__c insertedDoctor =
             [SELECT Id, Clinic__c
-     FROM Doctor__c
-     WHERE Id = :dr.Id];
+            FROM Doctor__c
+            WHERE Id = :dr.Id];
         
         System.assertEquals(null, insertedDoctor.Clinic__c);
     }

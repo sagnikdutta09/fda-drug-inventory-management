@@ -16,7 +16,7 @@ public with sharing class DrugBatchService {
                 dr.Expiry_Date__c.addError('Expiry Date cannot be in the past.');
             }
             if(dr.Expiry_Date__c!=null && dr.Manufacture_Date__c!=null && dr.Expiry_Date__c<dr.Manufacture_Date__c){
-                dr.Expiry_Date__c.addError('Expiry Date cannot be before the manufacture date');
+                dr.Expiry_Date__c.addError('Expiry Date cannot be before the manufacture date.');
             }
         }
     }
