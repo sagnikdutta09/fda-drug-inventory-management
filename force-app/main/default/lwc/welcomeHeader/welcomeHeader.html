@@ -1,19 +1,50 @@
 <template>
     <lightning-card>
-        <div class = "slds-p-around-large">
-            <h1 class = "slds-text-heading-large">
-                FDA Drug Inventory & Distribution System
-            </h1>
-            <p class = "slds-text-color_weak slds-m-top_x-small">
-                Welcome back, Administrator
-            </p>
-            <div class= "sldc-m-top_medium">
-                <p>
-                    <strong>Date:</strong>{currentDate}
+        <div class="header-container">
+
+            <div class="greeting-section">
+                <p class="greeting">
+                    {greeting}
                 </p>
-                <p class="slds-m-top_x-small">
-                    <strong>Time:</strong> {currentTime}
-                </p>
+
+                <h1 class="title">
+                    {title}
+                </h1>
+            </div>
+
+            <div class="user-details">
+                <p class="details-heading"></p>
+
+                <div class="detail-row">
+                    <span class="detail-label">Name : </span>
+                    <span class="detail-value">{userDetails.name}</span>
+                </div>
+
+                <div class="detail-row">
+                    <span class="detail-label">Profile : </span>
+                    <span class="detail-value">{userDetails.profile}</span>
+                </div>
+
+                <div class="detail-row">
+                    <span class="detail-label">Email : </span>
+                    <span class="detail-value">{userDetails.email}</span>
+                </div>
+            </div>
+
+            <div class="timeDate-container">
+
+                <div class="timeDate-section">
+                    <p class="timeDate">
+                        {fullTime}
+                    </p>
+                </div>
+
+                <div class="timeDate-section">
+                    <p class="timeDate">
+                        {fullDate}
+                    </p>
+                </div>
+
             </div>
         </div>
     </lightning-card>

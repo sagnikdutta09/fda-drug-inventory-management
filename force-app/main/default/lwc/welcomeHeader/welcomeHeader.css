@@ -1,0 +1,72 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    padding-left: 2rem;
+
+    border: 1px solid #d8dde6;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.greeting-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+.greeting {
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.user-details {
+    margin-top: 0.75rem;
+}
+
+.details-heading {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12rem;
+    margin: 0 0 0.5rem;
+}
+
+.timeDate-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.35rem;
+}
+
+.timeDate-section {
+    text-align: right;
+}   
+
+.timeDate {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0.15rem 0 0;
+}
+
+.detail-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.25rem;
+    font-size: 0.85rem;
+}
+
+.detail-label {
+    width: 4.5rem;
+    font-weight: 600;
+}
+
+.detail-value {
+    color: #444;
+}
