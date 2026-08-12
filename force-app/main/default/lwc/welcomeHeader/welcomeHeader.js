@@ -4,10 +4,26 @@ import { getRecord, getFieldValue } from 'lightning/uiRecordApi';
 import NAME_FIELD from '@salesforce/schema/User.Name';
 import PROFILE_FIELD from '@salesforce/schema/User.Profile.Name';
 import EMAIL_FIELD from '@salesforce/schema/User.Email';
+import TIME_ZONE from '@salesforce/schema/User.TimeZoneSidKey';
+import CITY_FIELD from '@salesforce/schema/User.City';
+import COUNTRY_FIELD from '@salesforce/schema/User.Country';
 
 export default class WelcomeHeader extends LightningElement {
     title='Welcome to the FDA Drug Inventory & Distribution System';
     // username='Sagnik Dutta'
+
+        @wire(
+        getRecord,{
+            recordId: USER_ID,
+            fields: [
+                NAME_FIELD, 
+                PROFILE_FIELD, 
+                EMAIL_FIELD,
+                CITY_FIELD,
+                COUNTRY_FIELD
+            ]
+        }
+    ) user; 
 
     get greeting(){
         const hours = new Date().getHours();
@@ -31,14 +47,6 @@ export default class WelcomeHeader extends LightningElement {
         },1000);
     }
 
-    get fullTime(){
-        const hours = this.currentTime.getHours();
-        const minutes = this.currentTime.getMinutes();
-        const seconds = this.currentTime.getSeconds();
-
-        return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-    }
-
     get fullDate(){
         const date= this.currentTime;
         const day = date.toLocaleDateString(
@@ -60,15 +68,16 @@ export default class WelcomeHeader extends LightningElement {
         return `${day}, ${dayNum} ${month}, ${year}`
     }
 
-    @wire(
-        getRecord,{
-            recordId: USER_ID,
-            fields: [NAME_FIELD, PROFILE_FIELD, EMAIL_FIELD]
-        }
-    ) user;
-
     isUser(){
         return this.user && this.user.data;
+    }
+
+    get location(){
+        let userLocation='Location unavailable';
+        if(this.isUser()){
+            userLocation = `${getFieldValue(this.user.data, CITY_FIELD)}, ${getFieldValue(this.user.data, COUNTRY_FIELD)}`;
+        }
+        return userLocation;
     }
 
     get userDetails(){
@@ -77,12 +86,24 @@ export default class WelcomeHeader extends LightningElement {
                 name: getFieldValue(this.user.data, NAME_FIELD),
                 profile : getFieldValue(this.user.data, PROFILE_FIELD),
                 email: getFieldValue(this.user.data, EMAIL_FIELD),
+                location: this.location
             };
         }
         return{
             name:'',
             profile:'',
-            email:''
+            email:'',
+            location:''
         };
     }
+
+    
+    get fullTime(){
+        const hours = this.currentTime.getHours();
+        const minutes = this.currentTime.getMinutes();
+        const seconds = this.currentTime.getSeconds();
+
+        return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }
+
 }
