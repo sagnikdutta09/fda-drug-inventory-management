@@ -1,0 +1,61 @@
+<template>
+    <div class="inventory-dashboard">
+        <div class="dashboard-title">
+            <p class="title">FDA Summary Dashboard</p>
+        </div>
+        <lightning-tabset>
+            <lightning-tab label="Overview">
+                <div class="metric-grid-overview">
+                    <template for:each={overviewMetrics} for:item="metric">
+                        <div class="metric-card" key={metric.label} onclick={handleMetricClick}>
+                            <p class="metric-label">{metric.label}</p>
+                            <p class="metric-value">{metric.value}</p>
+                        </div>
+                    </template>
+                </div>
+            </lightning-tab>
+            <lightning-tab label="Inventory Status">
+                <div class="metric-grid">
+                    <template for:each={inventoryMetrics} for:item="metric">
+                        <div class="metric-card" key={metric.label} onclick={handleMetricClick}>
+                            <p class="metric-label">{metric.label}</p>
+                            <p class="metric-value">{metric.value}</p>
+                        </div>
+                    </template>
+                </div>
+            </lightning-tab>
+
+            <lightning-tab label="Patients & Prescriptions">
+                <div class="metric-grid">
+                    <template for:each={patientPrescMetrics} for:item="patient">
+                        <div class="metric-card" key={patient.label}>
+                            <p class="metric-label">{patient.label}</p>
+                            <p class="metric-value">{patient.value}</p>
+                        </div>
+                    </template>
+                </div>
+            </lightning-tab>
+
+            <lightning-tab label="Dispensing">
+                <div class="metric-grid-dispense">
+                    <template for:each={dispensingMetrics} for:item="dispense">
+                        <div class="metric-card" key={dispense.label}>
+                            <p class="metric-label">{dispense.label}</p>
+                            <p class="metric-value">{dispense.value}</p>
+                        </div>
+                    </template>
+                </div>
+            </lightning-tab>
+            <lightning-tab label="Batch & Clinic">
+                <div class="metric-grid">
+                    <template for:each={batchClinicMetrics} for:item="batch">
+                        <div class="metric-card" key={batch.label}>
+                            <p class="metric-label">{batch.label}</p>
+                            <p class="metric-value">{batch.value}</p>
+                        </div>
+                    </template>
+                </div>
+            </lightning-tab>
+        </lightning-tabset>
+    </div>
+</template>
