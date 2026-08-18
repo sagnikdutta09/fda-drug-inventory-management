@@ -109,6 +109,10 @@ public with sharing class TestDataFactory {
             );
     }
     
+    public static Patient__c createPatient(){
+        return createPatient('Active');
+    }
+    
     public static Prescription__c createPrescription(
         Id doctorId,
     Id drugId,

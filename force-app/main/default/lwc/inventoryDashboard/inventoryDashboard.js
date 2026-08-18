@@ -12,6 +12,19 @@ export default class InventoryDashboard extends LightningElement {
     wiredDashboard({ data, error }) {
 
         if (data) {
+            // this.overviewMetrics=[
+            //         {label: 'TOTAL INVENTORY', value: data.totalInventory},
+            //         {label: 'LOW STOCK', value: data.lowStock},
+            //         {label: 'FROZEN STOCK', value: data.frozenInventory},
+            //         {label:'TOTAL PATIENTS', value: data.totalPatients},
+            //         {label:'ACTIVE PATIENTS', value: data.activePatients},
+            //         {label:'ACTIVE PRESCRIPTIONS', value: data.activePresc},
+            //         {label: 'TOTAL DISPENSED', value: data.totalDispense},
+            //         {label: 'DISPENSED THIS MONTH', value: data.dispensedThisMonth},
+            //         { label: 'TOTAL BATCHES', value: data.totalBatches },
+            //         { label: 'ACTIVE BATCHES', value: data.activeBatches},
+            //         { label: 'ACTIVE CLINICS', value: data.activeClinics}
+            // ]
             this.inventoryMetrics=[
                     {label: 'TOTAL INVENTORY', value: data.totalInventory},
                     {label: 'LOW STOCK', value: data.lowStock},
@@ -30,7 +43,7 @@ export default class InventoryDashboard extends LightningElement {
                     { label: 'TOTAL BATCHES', value: data.totalBatches },
                     { label: 'ACTIVE BATCHES', value: data.activeBatches},
                     { label: 'ACTIVE CLINICS', value: data.activeClinics}
-            ];
+            ]
             this.overviewMetrics=[
                 ...this.inventoryMetrics,
                 ...this.patientPrescMetrics,

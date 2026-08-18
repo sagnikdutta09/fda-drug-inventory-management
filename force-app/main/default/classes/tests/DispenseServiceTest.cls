@@ -45,7 +45,14 @@ public with sharing class DispenseServiceTest {
         Date.today());
         
         Test.startTest();
-        insert dispense;
+        try {
+    insert dispense;
+}
+catch (Exception e) {
+    System.debug('MESSAGE: ' + e.getMessage());
+    System.debug('STACK: ' + e.getStackTraceString());
+    throw e;
+}
         Test.stopTest();
         
         Dispense__c insertedDispense = [

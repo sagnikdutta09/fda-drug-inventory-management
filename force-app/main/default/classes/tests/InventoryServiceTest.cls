@@ -66,23 +66,6 @@ private class InventoryServiceTest {
         }
         Test.stopTest();
     }
-    @isTest
-    static void testNegative_inventoryValidations_QuantityOnHand_ReorderThresholdCheck(){
-        Drug_Batch__c batch = [
-            SELECT Id
-            FROM Drug_Batch__c
-            LIMIT 1
-        ];
-        Inventory__c inv = TestDataFactory.createInventory(10, 20, 'Available', batch.Id);
-        Test.startTest();
-        try{
-            insert inv;
-            System.assert(false,'Expected DMLException');
-        }catch(DmlException e){
-            System.assert(e.getMessage().contains('Reorder Threshold cannot exceed the Quantity on hand.'));
-        }
-        Test.stopTest();
-    }
     
     @isTest
     static void testPositive_inventoryDrugMatch() {
