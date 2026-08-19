@@ -38,21 +38,14 @@ public with sharing class DispenseServiceTest {
     @isTest
     static void TestPositive_baseValidations(){
         Dispense__c dispense = TestDataFactory.createDispense(
-            getPrescriptionId(),
+        getPrescriptionId(),
         getPatientId(),
         getInventoryId(),
         50,
         Date.today());
         
         Test.startTest();
-        try {
-    insert dispense;
-}
-catch (Exception e) {
-    System.debug('MESSAGE: ' + e.getMessage());
-    System.debug('STACK: ' + e.getStackTraceString());
-    throw e;
-}
+        insert dispense;
         Test.stopTest();
         
         Dispense__c insertedDispense = [
